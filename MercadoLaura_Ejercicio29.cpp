@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h>
 
+//Tomado de: https://www.dreamincode.net/forums/topic/125770-simulating-diffusion-equation/
+
 FILE *output;
 
 int main ()
