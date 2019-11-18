@@ -21,7 +21,7 @@ int main ()
     double sigma=0.05;
 
 
-    output=fopen("d2d.dat", "w");
+    output=fopen("Ejercicio29.dat", "w");
 
 
     for(i=0; i < numx; i++){                         //intial condition         
