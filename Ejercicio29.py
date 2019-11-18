@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 plt.figure(1)
 
-data = np.loadtxt("d2d.dat")
+data = np.loadtxt("Ejercicio29.dat")
 
 plt.plot(data[:,0], data[:,1])
 plt.plot(data[:,0], data[:,2])
@@ -17,4 +17,4 @@ plt.plot(data[:,0], data[:,7])
 plt.title("hola")
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.savefig("Ejercicio28.png")
+plt.savefig("Ejercicio29.png")
