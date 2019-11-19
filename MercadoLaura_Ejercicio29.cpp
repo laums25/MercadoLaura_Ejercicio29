@@ -10,10 +10,13 @@ int main (){
 	double m=0.5;
     double s=0.02;
     double deltax=1.0/nx;
+    double D=1.0;
+    double deltat=deltax*deltax/2*D;
     double C[nx][nt];
     double x=0.0;
     int i=0;
 	int j=0;
+    
     
     output=fopen("Ejercicio29.dat", "w");
 
@@ -27,7 +30,7 @@ int main (){
     for(j = 0; j < nt - 1; j++){
         for(i=1; i<nx-1; i++){
             x=i*deltax;
-            C[i][j+1] = C[i][j] + (0.00005/(deltax*deltax))*(C[i+1][j] - 2*C[i][j] + C[i-1][j]);
+            C[i][j+1] = C[i][j] + (D*deltat/(deltax*deltax))*(C[i+1][j] - 2*C[i][j] + C[i-1][j]);
         }                                             
         C[0][j+1]=0.0;                                      
         C[nx-1][j+1]=0.0;                          
