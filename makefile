@@ -1,3 +1,10 @@
+Ejer29.png : Ejer29.dat Ejercicio29.py
+	python Ejercicio29.py
+
+Ejer29.dat : Ejer.x
+	./Ejer.x
+
+
 Ejercicio29.png  : Ejercicio29.dat Ejercicio29.py
 	python Ejercicio29.py
 

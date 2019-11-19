@@ -25,5 +25,27 @@ plt.savefig("Ejercicio29.png")
 
 
 
+plt.figure(2, figsize=(8,4))
+
+plt.subplot(1,2,2)
+da = np.loadtxt("Ejer29.dat")
+
+plt.plot(da[:,0], da[:,1])
+plt.plot(da[:,0], da[:,2])
+plt.plot(da[:,0], da[:,3])
+plt.plot(da[:,0], da[:,4])
+plt.plot(da[:,0], da[:,5])
+plt.plot(da[:,0], da[:,6])
+plt.plot(da[:,0], da[:,7])
+
+plt.subplot(1,2,1)
+plt.imshow(da.T)            
+            
+plt.title("hola")
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.savefig("Ejer29.png")
+
+
 
 
