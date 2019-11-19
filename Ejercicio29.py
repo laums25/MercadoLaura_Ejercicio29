@@ -47,5 +47,26 @@ plt.ylabel('Y')
 plt.savefig("Ejer29.png")
 
 
+plt.figure(3, figsize=(8,4))
+
+plt.subplot(1,2,2)
+d = np.loadtxt("Ej29.dat")
+
+plt.plot(d[:,0], d[:,1])
+plt.plot(d[:,0], d[:,2])
+plt.plot(d[:,0], d[:,3])
+plt.plot(d[:,0], d[:,4])
+plt.plot(d[:,0], d[:,5])
+plt.plot(d[:,0], d[:,6])
+plt.plot(d[:,0], d[:,7])
+
+plt.subplot(1,2,1)
+plt.imshow(d.T)            
+            
+plt.title("hola")
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.savefig("Ej29.png")
+
 
 

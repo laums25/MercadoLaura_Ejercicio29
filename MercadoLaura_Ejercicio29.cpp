@@ -7,11 +7,14 @@
 
 FILE *output;
 int main (){
-    int nx=100;
+    int nx=30;
     int vax=50;
+	int dax=100;
 	double D=1.0;
 	double deltax2=1.0/vax;
+	double deltax3=1.0/dax;
 	double deltat2=deltax2*deltax2/2*D;
+	double deltat3=deltax3*deltax3/2*D;
     int nt=100;
 	double m=0.5;
     double s=0.08;
@@ -19,6 +22,7 @@ int main (){
     double deltat=deltax*deltax/2*D;
     double C[nx][nt];
 	double N[vax][nt];
+	double T[dax][nt];
     double x=0.0;
     int i=0;
 	int j=0;
@@ -90,6 +94,41 @@ int main (){
 
     fflush(output);
     fclose(output);
+	
+	output=fopen("Ej29.dat", "w");
+    
+    for(i=0; i < dax; i++){                           
+        x=i*deltax3;
+        T[i][0]=exp(-((x-m)*(x-m))/(2.0*(s*s)))/pow((2.0*M_PI*(s*s)),0.5);
+    }
+    T[0][0]=0.0;
+    T[dax-1][0]=0.0;
+                                           
+    for(j = 0; j < nt - 1; j++){
+        for(i=1; i<dax-1; i++){
+            x=i*deltax3;
+            T[i][j+1] = T[i][j] + (D*deltat3/(deltax3*deltax3))*(T[i+1][j-1] - 2*T[i][j-1] + T[i-1][j-1]);
+        }                                             
+        T[0][j+1]=0.0;                                      
+        T[dax-1][j+1]=0.0;                          
+
+    }
+
+    for (i = 0; i < dax; ++i)
+    {
+        x = i * deltax3;
+        fprintf(output, "%e\t", x);
+        for (j = 0; j < nt; ++j)
+        {
+            fprintf(output, "%e\t", T[i][j]);
+            
+        }
+        fprintf(output, "\n");
+    }                                             
+
+    fflush(output);
+    fclose(output);
+
 
 
     return 0;                                     
